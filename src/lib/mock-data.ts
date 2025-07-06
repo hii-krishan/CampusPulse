@@ -73,6 +73,30 @@ export const events: Event[] = [
     imageUrl: 'https://placehold.co/600x400.png',
     aiHint: 'coding hackathon',
   },
+   {
+    id: '7',
+    title: 'Intro to Web Dev Workshop',
+    description: 'A hands-on workshop covering the basics of HTML, CSS, and JavaScript.',
+    date: '2024-09-28',
+    time: '01:00 PM',
+    location: 'Library, Room 2B',
+    category: 'Workshop',
+    organizer: 'Tech Club',
+    imageUrl: 'https://placehold.co/600x400.png',
+    aiHint: 'coding workshop',
+  },
+  {
+    id: '8',
+    title: 'Welcome Week Mixer',
+    description: 'An old event that is more than 2 months in the past to demonstrate filtering.',
+    date: '2024-07-01',
+    time: '05:00 PM',
+    location: 'Campus Green',
+    category: 'Social',
+    organizer: 'Student Union',
+    imageUrl: 'https://placehold.co/600x400.png',
+    aiHint: 'social party',
+  }
 ];
 
 export const organizerEvents = events.filter(e => ['Tech Club', 'Entrepreneurship Society', 'Coders for a Cause'].includes(e.organizer));

@@ -75,22 +75,22 @@ export default function LandingPage() {
             <h2 className="text-4xl font-bold font-headline mb-4">There's Something for Everyone</h2>
             <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">From tech talks to art shows, there's always something exciting happening on campus.</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-                <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-background/50 hover:bg-background transition-colors shadow-sm border border-transparent hover:border-border/50 cursor-pointer">
+                <Link href="/events?category=Conference" className="flex flex-col items-center gap-3 p-6 rounded-lg bg-background/50 hover:bg-background transition-colors shadow-sm border border-transparent hover:border-border/50 cursor-pointer">
                     <Calendar className="w-10 h-10 text-primary" />
                     <span className="font-semibold text-lg">Conferences</span>
-                </div>
-                <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-background/50 hover:bg-background transition-colors shadow-sm border border-transparent hover:border-border/50 cursor-pointer">
+                </Link>
+                <Link href="/events?category=Music" className="flex flex-col items-center gap-3 p-6 rounded-lg bg-background/50 hover:bg-background transition-colors shadow-sm border border-transparent hover:border-border/50 cursor-pointer">
                     <Mic className="w-10 h-10 text-primary" />
                     <span className="font-semibold text-lg">Music & Talks</span>
-                </div>
-                 <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-background/50 hover:bg-background transition-colors shadow-sm border border-transparent hover:border-border/50 cursor-pointer">
+                </Link>
+                 <Link href="/events?category=Competition" className="flex flex-col items-center gap-3 p-6 rounded-lg bg-background/50 hover:bg-background transition-colors shadow-sm border border-transparent hover:border-border/50 cursor-pointer">
                     <Award className="w-10 h-10 text-primary" />
                     <span className="font-semibold text-lg">Competitions</span>
-                </div>
-                 <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-background/50 hover:bg-background transition-colors shadow-sm border border-transparent hover:border-border/50 cursor-pointer">
+                </Link>
+                 <Link href="/events?category=Workshop" className="flex flex-col items-center gap-3 p-6 rounded-lg bg-background/50 hover:bg-background transition-colors shadow-sm border border-transparent hover:border-border/50 cursor-pointer">
                     <Briefcase className="w-10 h-10 text-primary" />
                     <span className="font-semibold text-lg">Workshops</span>
-                </div>
+                </Link>
             </div>
         </div>
       </section>

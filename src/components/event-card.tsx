@@ -1,6 +1,7 @@
 "use client";
 
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import type { Event } from '@/lib/types';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -9,15 +10,32 @@ import { Calendar, MapPin, Heart } from 'lucide-react';
 import { useWishlist } from '@/context/wishlist-context';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
+import { isToday, isFuture } from 'date-fns';
 
 interface EventCardProps {
   event: Event;
 }
 
+type EventStatus = 'Upcoming' | 'Live' | 'Expired';
+
 export function EventCard({ event }: EventCardProps) {
   const { toast } = useToast();
   const { addToWishlist, removeFromWishlist, isWishlisted } = useWishlist();
+  const [status, setStatus] = useState<EventStatus | null>(null);
   const wishlisted = isWishlisted(event.id);
+
+  useEffect(() => {
+    const [year, month, day] = event.date.split('-').map(Number);
+    const eventDate = new Date(year, month - 1, day);
+
+    if (isToday(eventDate)) {
+      setStatus('Live');
+    } else if (isFuture(eventDate)) {
+      setStatus('Upcoming');
+    } else {
+      setStatus('Expired');
+    }
+  }, [event.date]);
 
   const handleWishlistClick = () => {
     if (wishlisted) {
@@ -45,7 +63,23 @@ export function EventCard({ event }: EventCardProps) {
   return (
     <Card className="flex flex-col overflow-hidden h-full transform hover:-translate-y-1 transition-transform duration-300 ease-in-out shadow-lg hover:shadow-xl">
       <CardHeader className="p-0 relative">
-        <Badge className="absolute top-2 right-2 z-10 bg-primary/80 backdrop-blur-sm">{event.category}</Badge>
+        <div className="absolute top-2 right-2 z-10 flex flex-col items-end gap-2">
+          {status && (
+            <Badge
+              variant={
+                status === 'Expired' ? 'secondary' : 
+                status === 'Live' ? 'destructive' : 'default'
+              }
+              className={cn(
+                'pointer-events-none',
+                status === 'Live' && 'animate-pulse'
+              )}
+            >
+              {status}
+            </Badge>
+          )}
+          <Badge className="bg-primary/80 backdrop-blur-sm pointer-events-none">{event.category}</Badge>
+        </div>
         <Image
           src={event.imageUrl}
           alt={event.title}
@@ -71,7 +105,9 @@ export function EventCard({ event }: EventCardProps) {
       </CardContent>
       <CardFooter className="p-6 pt-0 bg-card">
         <div className="w-full flex items-center justify-between gap-2">
-          <Button className="flex-grow" onClick={handleRegisterClick}>Register Now</Button>
+          <Button className="flex-grow" onClick={handleRegisterClick} disabled={status === 'Expired'}>
+            {status === 'Expired' ? 'Event Expired' : 'Register Now'}
+          </Button>
           <Button variant="outline" size="icon" onClick={handleWishlistClick} aria-label="Add to wishlist">
             <Heart className={cn("w-5 h-5", wishlisted && "fill-primary text-primary")} />
           </Button>
