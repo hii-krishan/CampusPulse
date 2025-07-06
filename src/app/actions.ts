@@ -4,7 +4,6 @@ import { generateCaption, GenerateCaptionInput } from "@/ai/flows/ai-caption-gen
 import { getEventSuggestions, GetEventSuggestionsInput } from "@/ai/flows/ai-event-suggestions";
 import { posterAssistance, PosterAssistanceInput } from "@/ai/flows/ai-poster-assistance";
 
-// A helper function to wrap AI calls with error handling
 async function handleAICall<TInput, TOutput>(
   aiFunction: (input: TInput) => Promise<TOutput>,
   input: TInput
