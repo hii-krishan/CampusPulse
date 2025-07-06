@@ -9,12 +9,12 @@ import { PlusCircle } from "lucide-react";
 export default function OrganizerDashboardPage() {
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold font-headline">Organizer Dashboard</h1>
+      <div className="flex items-center justify-between gap-4">
+        <div className="space-y-1">
+          <h1 className="text-2xl md:text-3xl font-bold font-headline">Organizer Dashboard</h1>
           <p className="text-muted-foreground">Manage your events and access helpful tools.</p>
         </div>
-        <Button asChild>
+        <Button asChild className="shrink-0">
           <Link href="/organizer/create">
             <PlusCircle className="mr-2 h-4 w-4" />
             Create Event
