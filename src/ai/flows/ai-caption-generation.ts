@@ -1,11 +1,6 @@
 'use server';
-/**
- * @fileOverview An AI agent for generating catchy captions for event descriptions.
- *
- * - generateCaption - A function that generates captions.
- * - GenerateCaptionInput - The input type for the generateCaption function.
- * - GenerateCaptionOutput - The return type for the generateCaption function.
- */
+  @fileOverview 
+
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
