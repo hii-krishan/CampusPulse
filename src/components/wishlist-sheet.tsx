@@ -11,7 +11,7 @@ import {
 import { useWishlist } from "@/context/wishlist-context";
 import { Button } from "./ui/button";
 import Image from "next/image";
-import { Calendar, MapPin, X } from "lucide-react";
+import { Calendar, MapPin, X, Instagram } from "lucide-react";
 
 export function WishlistSheet({ children }: { children: React.ReactNode }) {
   const { wishlist, removeFromWishlist } = useWishlist();
@@ -48,6 +48,12 @@ export function WishlistSheet({ children }: { children: React.ReactNode }) {
                     <MapPin className="w-3 h-3"/>
                     <span>{event.location}</span>
                   </div>
+                   {event.instagramPostUrl && (
+                      <a href={event.instagramPostUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-muted-foreground flex items-center gap-2 mt-1 hover:text-primary">
+                          <Instagram className="w-3 h-3"/>
+                          <span>View Post</span>
+                      </a>
+                  )}
                 </div>
                 <Button
                   variant="ghost"

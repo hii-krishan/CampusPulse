@@ -12,6 +12,7 @@ export const events: Event[] = [
     organizer: 'Tech Club',
     imageUrl: 'https://placehold.co/600x400.png',
     aiHint: 'technology conference',
+    instagramPostUrl: 'https://instagram.com/p/1',
   },
   {
     id: '2',
@@ -24,6 +25,7 @@ export const events: Event[] = [
     organizer: 'Entrepreneurship Society',
     imageUrl: 'https://placehold.co/600x400.png',
     aiHint: 'startup pitch',
+    instagramPostUrl: '',
   },
   {
     id: '3',
@@ -36,6 +38,7 @@ export const events: Event[] = [
     organizer: 'Student Government',
     imageUrl: 'https://placehold.co/600x400.png',
     aiHint: 'music concert',
+    instagramPostUrl: 'https://instagram.com/p/3',
   },
   {
     id: '4',
@@ -48,6 +51,7 @@ export const events: Event[] = [
     organizer: 'Art Department',
     imageUrl: 'https://placehold.co/600x400.png',
     aiHint: 'art exhibition',
+    instagramPostUrl: '',
   },
   {
     id: '5',
@@ -60,6 +64,7 @@ export const events: Event[] = [
     organizer: 'Career Services',
     imageUrl: 'https://placehold.co/600x400.png',
     aiHint: 'career fair',
+    instagramPostUrl: 'https://instagram.com/p/5',
   },
   {
     id: '6',
@@ -72,6 +77,7 @@ export const events: Event[] = [
     organizer: 'Coders for a Cause',
     imageUrl: 'https://placehold.co/600x400.png',
     aiHint: 'coding hackathon',
+    instagramPostUrl: '',
   },
    {
     id: '7',
@@ -84,6 +90,7 @@ export const events: Event[] = [
     organizer: 'Tech Club',
     imageUrl: 'https://placehold.co/600x400.png',
     aiHint: 'coding workshop',
+    instagramPostUrl: '',
   },
   {
     id: '8',
@@ -96,6 +103,46 @@ export const events: Event[] = [
     organizer: 'Student Union',
     imageUrl: 'https://placehold.co/600x400.png',
     aiHint: 'social party',
+    instagramPostUrl: '',
+  },
+  {
+    id: '9',
+    title: 'Winter Gala',
+    description: 'A formal event to celebrate the end of the semester. Dress to impress!',
+    date: '2024-12-14',
+    time: '07:00 PM',
+    location: 'Grand Ballroom',
+    category: 'Social',
+    organizer: 'Student Union',
+    imageUrl: 'https://placehold.co/600x400.png',
+    aiHint: 'formal gala',
+    instagramPostUrl: 'https://instagram.com/p/9',
+  },
+  {
+    id: '10',
+    title: 'AI Ethics Debate',
+    description: 'A spirited debate on the ethical implications of artificial intelligence. Open to all students.',
+    date: '2025-01-20',
+    time: '03:00 PM',
+    location: 'Philosophy Hall, Room 101',
+    category: 'Conference',
+    organizer: 'Philosophy Club',
+    imageUrl: 'https://placehold.co/600x400.png',
+    aiHint: 'ai ethics',
+    instagramPostUrl: '',
+  },
+  {
+    id: '11',
+    title: 'Live Jazz Night',
+    description: 'Relax and enjoy an evening of live jazz music performed by the university jazz ensemble.',
+    date: '2025-02-05',
+    time: '08:00 PM',
+    location: 'Student Lounge',
+    category: 'Music',
+    organizer: 'Music Department',
+    imageUrl: 'https://placehold.co/600x400.png',
+    aiHint: 'jazz music',
+    instagramPostUrl: 'https://instagram.com/p/11',
   }
 ];
 

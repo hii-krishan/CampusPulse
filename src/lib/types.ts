@@ -9,4 +9,5 @@ export type Event = {
   organizer: string;
   imageUrl: string;
   aiHint?: string;
+  instagramPostUrl?: string;
 };

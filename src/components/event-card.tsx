@@ -6,7 +6,7 @@ import type { Event } from '@/lib/types';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, MapPin, Heart } from 'lucide-react';
+import { Calendar, MapPin, Heart, Instagram } from 'lucide-react';
 import { useWishlist } from '@/context/wishlist-context';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
@@ -108,6 +108,13 @@ export function EventCard({ event }: EventCardProps) {
           <Button className="flex-grow" onClick={handleRegisterClick} disabled={status === 'Expired'}>
             {status === 'Expired' ? 'Event Expired' : 'Register Now'}
           </Button>
+           {event.instagramPostUrl && (
+            <Button variant="outline" size="icon" asChild>
+                <a href={event.instagramPostUrl} target="_blank" rel="noopener noreferrer" aria-label="View on Instagram">
+                    <Instagram className="w-5 h-5" />
+                </a>
+            </Button>
+          )}
           <Button variant="outline" size="icon" onClick={handleWishlistClick} aria-label="Add to wishlist">
             <Heart className={cn("w-5 h-5", wishlisted && "fill-primary text-primary")} />
           </Button>

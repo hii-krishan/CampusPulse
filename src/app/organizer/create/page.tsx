@@ -59,6 +59,10 @@ export default function CreateEventPage() {
               <Label htmlFor="imageUrl">Image URL</Label>
               <Input id="imageUrl" placeholder="https://placehold.co/600x400.png" />
             </div>
+            <div className="space-y-2">
+              <Label htmlFor="instagramPostUrl">Instagram Post URL</Label>
+              <Input id="instagramPostUrl" placeholder="https://instagram.com/p/..." />
+            </div>
             <div className="md:col-span-2 flex justify-end">
               <Button type="submit">Create Event</Button>
             </div>
