@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   SidebarProvider,
   Sidebar,
@@ -13,7 +13,9 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { LayoutDashboard, PlusCircle, Sparkles, Command } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
+import { useAuth } from "@/context/auth-context";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function OrganizerLayout({
   children,
@@ -21,6 +23,14 @@ export default function OrganizerLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push("/login?redirect=/organizer");
+    }
+  }, [user, loading, router]);
 
   const menuItems = [
     {
@@ -39,6 +49,28 @@ export default function OrganizerLayout({
       icon: Sparkles,
     },
   ];
+
+  if (loading || !user) {
+    return (
+      <div className="flex">
+        <div className="hidden md:block">
+          <div className="w-64 p-4 space-y-4 border-r">
+            <Skeleton className="h-8 w-32" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+          </div>
+        </div>
+        <div className="flex-1 p-8 space-y-8">
+            <div className="flex items-center justify-between">
+              <Skeleton className="h-10 w-64" />
+              <Skeleton className="h-10 w-32" />
+            </div>
+            <Skeleton className="w-full h-96" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <SidebarProvider>
