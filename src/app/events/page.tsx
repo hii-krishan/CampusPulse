@@ -10,13 +10,11 @@ export default function EventsPage({ searchParams }: { searchParams?: { category
 
   const filteredEvents = events
     .filter(event => {
-      // Filter out events older than 2 months
       const [year, month, day] = event.date.split('-').map(Number);
       const eventDate = new Date(year, month - 1, day);
       return isAfter(eventDate, twoMonthsAgo);
     })
     .filter(event => {
-      // Filter by category if provided
       if (!category) return true;
       return event.category === category;
     });
